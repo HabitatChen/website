@@ -1,0 +1,96 @@
+
+.componentPageWrap {
+    width: 100%;
+    .header {
+        height: 64px;
+        box-shadow: 0 2px 8px #f0f1f2;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 20px;
+        .logo {
+            span {
+                line-height: 64px;
+                font-size: 22px;
+                font-family: 'Courier New', Courier, monospace;
+            }
+        }
+        .rightContent {
+            span {
+                font-size: 14px;
+                margin-right: 10px;
+                color: #1879ff;
+                &:hover {
+                    cursor: pointer;
+                }
+            }
+        }
+        
+    }
+
+    
+    .content {
+        min-height: calc(100vh - 64px);
+        padding-top: 40px;
+        display: flex;
+        .left {
+            width: 270px;
+            border-right: 1px solid #e8e8e8;
+            ul, li {
+                list-style: none;
+            }
+            .menuWrap {
+                .menuLi {
+                    height: 40px;
+                    padding-left: 40px;
+                    line-height: 40px;
+                    border-right: 3px solid transparent;
+                    
+                    &:hover {
+                        color: #1879ff;
+                        cursor: pointer;
+                    }
+                }
+                .menuLi.active {
+                    background  : #e6f7ff;
+                    border-right: 3px solid rgb(24, 144, 255);
+
+                    &:hover {
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+        .right {
+            width: calc(100% - 270px);
+            display: flex;
+            .mainContent {
+                width: calc(100% - 200px);
+                margin: 0 10%;
+                .contentTitle {
+                    margin-top: 8px;
+                    margin-bottom: 20px;
+                    color: #0d1a26;
+                    font-weight: 500;
+                    font-size: 30px;
+                    font-family: Avenir,-apple-system,BlinkMacSystemFont,segoe ui,pingfang sc,hiragino sans gb,microsoft yahei,helvetica neue,Helvetica,Arial,sans-serif,apple color emoji,segoe ui emoji,segoe ui symbol,sans-serif;
+                    line-height: 38px;
+                }
+                .secondTitle {
+                    font-size: 24px;
+                    line-height: 32px;
+                    clear      : both;
+                    margin     : 1.6em 0 .6em;
+                    color      : #0d1a26;
+                    font-weight: 500;
+                    font-family: Avenir, -apple-system, BlinkMacSystemFont, segoe ui, pingfang sc, hiragino sans gb, microsoft yahei, helvetica neue, Helvetica, Arial, sans-serif, apple color emoji, segoe ui emoji, segoe ui symbol, sans-serif;
+                }
+            }
+            .scrollContent {
+                width: 200px;
+                height: 200px;
+                border-left: 1px solid #e8e8e8 ;
+            }
+        }
+    }
+}

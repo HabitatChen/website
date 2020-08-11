@@ -1,0 +1,41 @@
+.alert {
+    width     : 300px;
+    height    : 200px;
+    position  : absolute;
+    top       : 100px;
+    left      : calc(50% - 150px);
+    z-index   : 99;
+    background: $blue;
+    border-radius: 15px;
+
+    .alert-wrap {
+        width: 100%;
+        height: 100%;
+        position: relative;
+
+        .alert-header {
+            > div {
+                color      : rgba(0, 0, 0, .85);
+                font-weight: 500;
+                font-size  : 16px;
+                line-height: 22px;
+                padding: 16px 24px;
+            }
+            
+            border-bottom: 1px solid #eee;
+        }
+
+        .alert-close {
+            position: absolute;
+            top: 16px;
+            right: 24px;
+            cursor: pointer;
+        }
+
+        .alert-content {
+            padding: 16px 24px;
+        }
+    }
+    
+    
+}
