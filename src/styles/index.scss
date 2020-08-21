@@ -5,8 +5,17 @@
 // mixin
 @import "mixins";
 
+// animation
+@import "animation";
+
 // button
 @import '../pages/componentPage/components/button/style';
 
 // alert 
 @import '../pages/componentPage/components/alert/style';
+
+// menu
+@import '../pages/componentPage/components/menu/style';
+
+// icon 
+@import '../pages/componentPage/components/newIcon/style';

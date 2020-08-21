@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import '../index.scss'
-import { Icon } from 'antd'
 import avator from '../../assets/avator.jpg'
 import PageMode from '../../assets/page-mode.png'
 import router from 'umi/router'
+import Icon from '../componentPage/components/newIcon/icon'
 
 interface INavDetailProps {
 
@@ -12,7 +12,7 @@ interface INavDetailProps {
 const menuList = [
     {
         title: '返回首页',
-        iconType: 'bank',
+        iconType: 'archway',
         path: '/',
         key: 1
     },
@@ -24,7 +24,7 @@ const menuList = [
     },
     {
         title: '组件页面',
-        iconType: 'experiment',
+        iconType: 'anchor',
         path: 'componentPage',
         key: 3
     },
@@ -71,10 +71,11 @@ export const NavDetail: React.FC<INavDetailProps> = (props) => {
                                         setActiveKey(item.key) 
                                         router.push(item.path)
                                     }}
-
                                 >
-                                    <Icon type={ item.iconType } /> 
-                                    <span>{ item.title }</span>
+                                    <span className='menu-item-icon-wrap'>
+                                        <Icon icon={ item.iconType } size='sm' theme='primary' /> 
+                                    </span>
+                                    <span className='home-menu-item-title'>{ item.title }</span>
                                 </li>
                             )
                         })

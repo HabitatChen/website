@@ -4,6 +4,9 @@ import router from "umi/router";
 import IconDisplay from './components/icon/iconDisplay'
 import ButtonDisplay from './components/button/buttonDispaly'
 import AlertDisplay from './components/alert/alertDispaly'
+import MenuDisplay from './components/menu/menuDisplay'
+import NewIconDisplay from './components/newIcon/iconDispaly'
+import TransitionDisplay from './components/transition/transitionDisplay'
 
 interface IConponentPageProps {
 
@@ -18,7 +21,7 @@ class ConponentPage extends React.Component<IConponentPageProps, IConponentPageS
     constructor(props: IConponentPageProps) {
         super(props)
         this.state = {
-            activeKey: 'alert'
+            activeKey: 'new-icon'
         }
 
         
@@ -52,6 +55,22 @@ class ConponentPage extends React.Component<IConponentPageProps, IConponentPageS
                                     activeKey: 'alert'
                                 })
                             }}> Alert </li>
+                            <li className={ `menuLi ${this.state.activeKey === 'menu' ? 'active' : '' }`} onClick={() => {
+                                this.setState({
+                                    activeKey: 'menu'
+                                })
+                            }}> menu </li>
+                            <li className={ `menuLi ${this.state.activeKey === 'new-icon' ? 'active' : '' }`} onClick={() => {
+                                this.setState({
+                                    activeKey: 'new-icon'
+                                })
+                            }}> new icon </li>
+                            <li className={ `menuLi ${this.state.activeKey === 'transition' ? 'active' : '' }`} onClick={() => {
+                                this.setState({
+                                    activeKey: 'transition'
+                                })
+                            }}> transition </li>
+                            
                         </ul>
                     </div>
                     <div className='right'>
@@ -69,6 +88,9 @@ class ConponentPage extends React.Component<IConponentPageProps, IConponentPageS
                             {/* <IconDisplay /> */}
                             { this.state.activeKey === 'button' ? <ButtonDisplay /> : null }
                             { this.state.activeKey === 'alert' ? <AlertDisplay /> : null }
+                            { this.state.activeKey === 'menu' ? <MenuDisplay /> : null }
+                            { this.state.activeKey === 'new-icon' ? <NewIconDisplay /> : null }
+                            { this.state.activeKey === 'transition' ? <TransitionDisplay /> : null }
                         </div>
                         <div className='scrollContent'>
                         </div>

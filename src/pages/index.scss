@@ -102,6 +102,7 @@
                             padding: 1px;
                             margin-right: 10px;
                             border-radius: 0 100px 100px 0;
+                            position: relative;
                             font-size: 17px;
                             > i {
                                 margin-right: 15px;
@@ -120,6 +121,15 @@
                                     fill: #9c27b0!important;
                                 }
                                 color: #9c27b0!important;
+                            }
+                            .menu-item-icon-wrap {
+                                margin-left: 15px;
+                                width: 50px;
+                            }
+                            .home-menu-item-title {
+                                position: absolute;
+                                left: 40px;
+                                // margin-left: 10px;
                             }
                         }
                         

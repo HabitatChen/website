@@ -9,8 +9,8 @@ const defaultProps = {
 }
 
 const testProps: ButtonProps = {
-    btnType: ButtonType.Primary,
-    size: ButtonSize.Large,
+    btnType: 'primary',
+    size: 'large',
     className: 'klass'
 }
 
@@ -44,7 +44,7 @@ describe('test Button component', () => {
         expect(defaultProps.onClick).toHaveBeenCalled()
 
         // 默认的时候disabled属性是假的
-        expect(element.disabled).toBeFalthy()
+        expect(element.disabled).not.toBeTruthy()
         
     })
     it('should render the correct component based on different on different props', () => {
@@ -56,7 +56,7 @@ describe('test Button component', () => {
         expect(element).toHaveClass('btn-primary btn-large klass')
     })
     it('type=link并且提供了href属性', () => {
-        const wrapper = render(<Button btnType={ ButtonType.Link } href='http://mockurl' >Link</Button>)
+        const wrapper = render(<Button btnType={ 'link' } href='http://mockurl' >Link</Button>)
         const element = wrapper.queryByText('Link')
 
         // 判断该组件是什么元素

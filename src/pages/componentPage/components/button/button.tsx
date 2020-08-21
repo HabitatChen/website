@@ -2,17 +2,9 @@ import React from 'react'
 import './index.scss'
 import classNames from 'classnames'
 
-export enum ButtonType {
-    Primary = 'primary',
-    Danger  = 'danger',
-    Link    = 'link',
-    Default = 'default'
-}
+export type ButtonType = 'primary' | 'danger' | 'link' | 'default'
 
-export enum ButtonSize {
-    Large = 'large',
-    Small = 'small'
-}
+export type ButtonSize = 'large' | 'small'
 
 type NativeButtonProps = React.ButtonHTMLAttributes<HTMLElement> & BaseButtonProps
 type AnchorButtonProps = React.AnchorHTMLAttributes<HTMLElement> & BaseButtonProps
@@ -46,10 +38,10 @@ const Button: React.FC<ButtonProps> = (props) => {
     const classes = classNames('btn', className, {
         [`btn-${btnType}`]: btnType,
         [`btn-${size}`]: size,
-        'disabled': (btnType === ButtonType.Link) && disabled
+        'disabled': (btnType === 'link') && disabled
     })
 
-    if (btnType === ButtonType.Link) {
+    if (btnType === 'link') {
         return (
             <a 
                 className={ classes }
@@ -75,7 +67,7 @@ const Button: React.FC<ButtonProps> = (props) => {
 
 Button.defaultProps = {
     disabled: false,
-    btnType: ButtonType.Default
+    btnType: 'default'
 }
 
 export default Button
