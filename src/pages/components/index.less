@@ -1,0 +1,194 @@
+.headerWrap.is-home {
+    height: 61.8vh !important; 
+}
+.headerWrap.bg1 { background-image   : url('../../assets/bg1.jpeg'); }
+.headerWrap.bg2 { background-image   : url('../../assets/bg2.jpeg'); }
+.headerWrap.bg3 { background-image   : url('../../assets/bg3.jpeg'); }
+.headerWrap.bg4 { background-image   : url('../../assets/bg4.jpeg'); }
+.headerWrap.bg5 { background-image   : url('../../assets/bg5.jpeg'); }
+
+.headerWrap.isProject {
+    background-image: unset;
+    background-color: #477ec7;
+    height: unset !important;
+}
+
+.headerWrap {
+    width          : 100%;
+
+    justify-content: space-between;
+    color          : white;
+    font-size      : 22px;
+    padding        : 0 20px;
+
+    // width              : 100%;
+    height             : 42.5vh;
+    background-position: center center;
+    background-size    : cover;
+    position: relative;
+
+    .titleWrap {
+        width: 100%;
+        height     : 64px;
+        display    : flex;
+        align-items: center;
+        .search {
+            width: 40px;    
+            font-size: 18px;
+            &:hover {
+                cursor: pointer;
+            }
+        }
+    }
+    .banner-content {
+        text-align: center;
+        position: absolute;
+        width: 300px;
+        height: 40px;
+        top: calc(50% - 20px);
+        left: calc(50% - 150px);
+        // transform: translate(50%, 50%);
+        // margin: auto;
+    }
+
+    .title {
+        width: 100%;
+        position: relative;
+
+        span {
+            margin-right: 10px;
+
+        }
+
+        .titleNavIcon {
+            &:hover {
+                cursor: pointer;
+            }
+        }
+
+        .navDetailWrap {
+            width     : 320px;
+            height    : 100vh;
+            border    : 1px silid red;
+            background: #eee;
+            position  : fixed;
+            box-shadow: 0 8px 10px -5px rgba(0, 0, 0, .2), 0 16px 24px 2px rgba(0, 0, 0, .14), 0 6px 30px 5px rgba(0, 0, 0, .12);
+            top       : 0;
+            left      : 0;
+            z-index   : 11;
+
+            >.banner {
+                width              : 100%;
+                height             : 200px;
+                background-image   : url('../../assets/menu-banner.jpg');
+                background-size    : cover;
+                background-position: center center;
+                position           : relative;
+                padding            : 10px;
+
+                .avator {
+                    width              : 65px;
+                    height             : 65px;
+                    position           : absolute;
+                    top                : 20px;
+                    left               : 20px;
+                    background-image   : url('../..//assets/avator.jpg');
+                    background-size    : cover;
+                    background-position: center center;
+                    border-radius      : 65px;
+                    overflow           : hidden;
+                    z-index            : 12;
+                    transition         : opacity .3s;
+                }
+
+                .pageMode {
+                    position: absolute;
+                    top     : 20px;
+                    right   : 20px;
+                    width   : 36px;
+                    height  : 36px;
+
+                    img {
+                        width : 100%;
+                        height: 100%;
+
+                        &:hover {
+                            cursor: pointer;
+                        }
+                    }
+                }
+
+                .desc {
+                    position: absolute;
+                    bottom  : 20px;
+                    left    : 20px;
+
+                    .headerDesc {
+                        span {}
+                    }
+
+                    .contentDesc {
+                        span {
+                            font-size: 14px;
+                            color    : hsla(0, 0%, 100%, .7);
+                        }
+                    }
+                }
+            }
+
+            >.contentWrap {
+                background: white;
+                height    : calc(100vh - 200px);
+                color     : black;
+
+                .menuWrap {
+                    padding-top: 10px;
+
+                    .menuItem {
+                        padding      : 1px;
+                        margin-right : 10px;
+                        border-radius: 0 100px 100px 0;
+                        position     : relative;
+                        font-size    : 17px;
+
+                        >i {
+                            margin-right: 15px;
+
+                            svg {
+                                width : 16px;
+                                height: 16px;
+                            }
+                        }
+
+                        &:hover {
+                            background: rgba(0, 0, 0, .08);
+                            cursor    : pointer;
+                        }
+
+                        &.selected {
+                            background: rgba(156, 39, 176, .2);
+
+                            >i {
+                                fill: #9c27b0 !important;
+                            }
+
+                            color: #9c27b0 !important;
+                        }
+
+                        .menu-item-icon-wrap {
+                            margin-left: 15px;
+                            width      : 50px;
+                        }
+
+                        .home-menu-item-title {
+                            position      : absolute;
+                            left          : 40px;
+                            // margin-left: 10px;
+                        }
+                    }
+
+                }
+            }
+        }
+    }
+}

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { FC, ButtonHTMLAttributes, AnchorHTMLAttributes } from 'react'
 import './index.scss'
 import classNames from 'classnames'
 
@@ -15,14 +15,26 @@ export type ButtonProps =  Partial< NativeButtonProps & AnchorButtonProps >
 // 设计API
 interface BaseButtonProps {
     className?: string
+    /** button类型 */
     btnType?: ButtonType
+    /** button尺寸 */
     size?: ButtonSize
+    /** button禁用属性 */
     disabled?: boolean
     children: React.ReactNode
     href?: string 
+    aaa?: string
 }
 
-const Button: React.FC<ButtonProps> = (props) => {
+/**
+ * 这是第一个 button 组件
+ * ## Button header
+ * ~~~js
+ * import { Button } from 'ckui' 
+ * ~~~
+ */
+
+export const Button: FC<ButtonProps> = (props) => {
 
     const {
         className,
@@ -70,4 +82,4 @@ Button.defaultProps = {
     btnType: 'default'
 }
 
-export default Button
+export default Button;

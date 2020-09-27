@@ -2,8 +2,9 @@ import React from 'react';
 import './index.scss';
 import { Icon } from 'antd'
 import { formatMessage } from 'umi-plugin-locale';
-import { NavDetail } from './components/NavDetail'
-
+import CommonHeader from './components/CommonHeader'
+import { Button, Menu, AutoComplete } from 'ckui'
+import _ from 'lodash'
 
 interface IIndexProps {
 
@@ -25,19 +26,39 @@ class Index extends React.Component<IIndexProps, IIndexState> {
     }
 
     componentDidMount() {
-        document.addEventListener('click', () => {
-            this.setState({
-                showNav: false
-            })
-        });
+        
     }
 
-    // 是否弹出菜单
-    toggleNav = (e: any) => {
-        e.nativeEvent.stopImmediatePropagation()
-        this.setState({
-            showNav: !this.state.showNav
-        })
+    // 处理循环引用
+    cloneDeep2 = (obj: any, parent: any = null) => {
+        let result: any = {}
+        let keys = Object.keys(obj)
+        let key = null
+        let temp = null
+        let _parent: any = parent
+
+        while (_parent) {
+            // 如果该字段引用了其父级，则为循环引用
+            if (_parent.originParent === obj) {
+                return _parent.currentParent
+            }
+            _parent = _parent.parent
+        }
+
+        for (let i = 0, len = keys.length; i < len; i++) {
+            key = keys[i]
+            temp = obj[key]
+            if (temp && typeof temp === 'object') {
+                result[key] = this.cloneDeep2(obj, {
+                    originParent: obj,
+                    currentParent: result,
+                    parent: parent 
+                })
+            } else {
+                result[key] = temp
+            }
+        }
+        return result
     }
 
     // 点击导航栏之外的地方
@@ -45,37 +66,20 @@ class Index extends React.Component<IIndexProps, IIndexState> {
         console.log(e.target.value);
     }
 
+    renderTemplate = (item: any) => {
+        return (
+            <>
+                <p>Name: {item.value}</p>
+            </>
+        )
+    }
+
     render() {
 
-        const { showNav } = this.state
-
         return (
-            <div className='wrap' onClick={ (e) => {
-                this.handleHideNavClick(e)
-            }}>
-
-                <header>
-                    <div className='title'>
-                        <span className='titleNavIcon' onClick={ this.toggleNav }>三</span>
-                        <span> habitat </span>
-                        {
-                            showNav ? <NavDetail /> : null
-                        }
-                    </div> 
-                    <div className='search'>
-                        <Icon type='search'/>
-                    </div>
-                </header>
-
+            <div className='wrap'>
                 <main>
-                    <div className='banner'>
-                        <span className='desc'>
-                            慢慢来，才最快
-                        </span>
-                    </div>
-
                     <div className='contentWrap'>
-
                         <section>
                             <span className='contentTitle'>推荐文章</span>
                             <div 

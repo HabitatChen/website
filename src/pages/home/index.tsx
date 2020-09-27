@@ -1,9 +1,13 @@
 import React from 'react';
 
-export default function () {
-    return (
-        <div >
-            hello world
-        </div>
-    );
+class Demo extends React.Component {
+    render() {
+        return (
+            <div >
+                hello world
+            </div>
+        )
+    }
 }
+
+export default Demo

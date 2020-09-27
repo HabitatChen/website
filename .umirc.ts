@@ -1,4 +1,5 @@
 import { IConfig } from 'umi-types';
+import path from 'path'
 
 // ref: https://umijs.org/config/
 const config: IConfig = {
@@ -26,13 +27,29 @@ const config: IConfig = {
             },
         }],
     ],
-    chainWebpack() {
-
+    chainWebpack(config, { webpack }) {
+        config.module
+            .rule('react-docgen-typescript-loader')
+            .test(/\.tsx?$/)
+            .use(require.resolve('react-docgen-typescript-loader'))
+            .loader(require.resolve('react-docgen-typescript-loader'))
+            .options({
+                shouldExtractLiteralValuesFromEnum: true,
+                propFilter: (prop) => {
+                    if (prop.parent) {
+                        return !prop.parent.fileName.includes('node_modules')
+                    }
+                    return true
+                }
+            })
     },
     cssLoaderOptions: {
         localeIdentNmae: ['local']
     },
-    disableCSSModules: true
+    disableCSSModules: true,
+    externals: {
+        // pkConfig: 'DataConfig',
+    }
 }
 
 export default config;
